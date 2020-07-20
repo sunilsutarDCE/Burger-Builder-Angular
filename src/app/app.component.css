@@ -1,0 +1,13 @@
+.container {
+    text-align: center;padding: 50px;border-radius:10px;border:1px solid #999;width:60%;margin:0 auto;
+}
+a:link, a:visited { 
+    color: 000; 
+    padding: 10px 25px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; margin:0 15px 50px 0;
+ } 
+ a:hover, a:active {
+    color: #BD9696;
+ }

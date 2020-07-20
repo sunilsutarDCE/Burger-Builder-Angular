@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 25px 0 0 0;
+    font-family: "Open Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .burger-top,.burger-bottom,.bun,.salad,.cheese,.cutlet
+  {
+      display: inline-block;width:100%;background: linear-gradient(#bc581e, #e27b36);;height: 50px;content: ' ';
+      border-radius: 10px;margin: 5px 0 0 0;
+  }
+  .burger-top{
+      border-radius: 50% 50% 0 0;
+  }
+  .burger-bottom{
+    height: 30px;
+  }
+
+  .salad{
+      height:20px;background: green;width:90%;
+  }
+  .cheese{
+      height:20px;background: salmon;width:90%;
+  }
+  .cutlet{
+      height:20px;background: lightslategray;width:90%;content:' ';
+  }
+  .pull-left{
+      float: left;
+  }
+  .pull-right{
+    float: right;
+}

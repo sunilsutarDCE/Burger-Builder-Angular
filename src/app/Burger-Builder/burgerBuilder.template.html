@@ -1,0 +1,39 @@
+<div class="burgerContainer" *ngIf="!isReadyForCheckOut">
+  <div class="Burger pull-left">
+    <div class="burger-top"></div>
+    <span *ngFor="let in of ingredientsArray">
+        <div *ngIf="in.count>0" class="ingredientContainer" [innerHtml]="in.innerHTML" style="display: inline-block"></div>
+    </span>
+    <div class="burger-bottom"></div>
+  </div>
+  <div class="pull-right">
+    <p>Cutlet : <button (click)="addIngredient('cutlet')">Add</button>
+      <button [disabled]="ingredients['cutlet']==0" (click)="removeIngredient('cutlet')">Remove</button></p>
+    <p>Cheese: <button (click)="addIngredient('cheese')">Add</button>
+      <button [disabled]="ingredients['cheese']==0" (click)="removeIngredient('cheese')">Remove</button></p>
+    <p>Salad :&nbsp;&nbsp;<button (click)="addIngredient('salad')">Add</button>
+      <button [disabled]="ingredients['salad']==0" (click)="removeIngredient('salad')">Remove</button></p>
+      <div>
+            <button [disabled]="!readyForSummary" (click)="order()" class="Order">Order Now</button>
+          </div>
+  </div>
+  
+</div>
+<div *ngIf="isReadyForCheckOut && !orderDone" class="orderSummary">
+    <a (click)="isReadyForCheckOut=!isReadyForCheckOut"> Back </a>
+    <h3>Following is your order details : </h3>
+    <p> Bun : {{ingredients['bun'] | currency: 'INR':true}}</p>
+    <p> Cutlets : {{ingredients['cutlet'] | currency: 'INR':true}}</p>
+    <p> Cheese : {{ingredients['cheese'] | currency: 'INR':true}}</p>
+    <p> Salad : {{ingredients['salad'] | currency: 'INR':true}}</p>
+    <p><b>Total : {{totalPrice | currency: 'INR':true}}</b></p>
+    <h4>Provide personal details :</h4>
+    <p *ngIf="errorMsg!=''" class="error">{{errorMsg}}</p>
+    <p> Name : &nbsp;&nbsp;&nbsp;<input type="text" [(ngModel)]="name" placeholder=""></p>
+    <p> Mobile :&nbsp;&nbsp; <input type="text" [(ngModel)]="mobile" placeholder=""></p>
+    <button (click)="checkOut()" class="Order">Check Out</button>
+</div>
+<div *ngIf="orderDone">
+    <p>Thank you for orders ...</p>
+    <a href="/">Order Again</a>
+</div>
